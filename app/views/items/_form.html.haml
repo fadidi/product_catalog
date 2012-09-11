@@ -17,7 +17,7 @@
     = f.text_field :length
   .field
     = f.label :unit_id
-    = f.number_field :unit_id
+    = f.collection_select :unit_id, Unit.all, :id, :name
   .field
     = f.label :memory_id
     = f.number_field :memory_id
