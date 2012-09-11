@@ -6,8 +6,9 @@ class CreateItems < ActiveRecord::Migration
       t.string :length
       t.integer :unit_id
       t.integer :memory_id
-      t.string :attributes
+      t.string :properties
       t.string :vendor_sku
+      t.text :comment
 
       t.timestamps
     end

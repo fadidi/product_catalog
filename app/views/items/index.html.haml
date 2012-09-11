@@ -7,8 +7,9 @@
     %th Length
     %th Unit
     %th Memory
-    %th Attributes
+    %th Properties
     %th Vendor sku
+    %th Comment
     %th
     %th
     %th
@@ -20,8 +21,9 @@
       %td= item.length
       %td= item.unit_id
       %td= item.memory_id
-      %td= item.attributes
+      %td= item.properties
       %td= item.vendor_sku
+      %td= item.comment
       %td= link_to 'Show', item
       %td= link_to 'Edit', edit_item_path(item)
       %td= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }
