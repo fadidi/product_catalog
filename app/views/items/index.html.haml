@@ -1,0 +1,31 @@
+%h1 Listing items
+
+%table
+  %tr
+    %th Product
+    %th Pieces per package
+    %th Length
+    %th Unit
+    %th Memory
+    %th Attributes
+    %th Vendor sku
+    %th
+    %th
+    %th
+
+  - @items.each do |item|
+    %tr
+      %td= item.product_id
+      %td= item.pieces_per_package
+      %td= item.length
+      %td= item.unit_id
+      %td= item.memory_id
+      %td= item.attributes
+      %td= item.vendor_sku
+      %td= link_to 'Show', item
+      %td= link_to 'Edit', edit_item_path(item)
+      %td= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Item', new_item_path

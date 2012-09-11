@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Product:
+  = @item.product_id
+%p
+  %b Pieces per package:
+  = @item.pieces_per_package
+%p
+  %b Length:
+  = @item.length
+%p
+  %b Unit:
+  = @item.unit_id
+%p
+  %b Memory:
+  = @item.memory_id
+%p
+  %b Attributes:
+  = @item.attributes
+%p
+  %b Vendor sku:
+  = @item.vendor_sku
+
+= link_to 'Edit', edit_item_path(@item)
+\|
+= link_to 'Back', items_path

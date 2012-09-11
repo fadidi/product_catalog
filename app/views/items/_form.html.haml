@@ -1,0 +1,31 @@
+= form_for @item do |f|
+  - if @item.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@item.errors.count, "error")} prohibited this item from being saved:"
+      %ul
+        - @item.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :product_id
+    = f.number_field :product_id
+  .field
+    = f.label :pieces_per_package
+    = f.number_field :pieces_per_package
+  .field
+    = f.label :length
+    = f.text_field :length
+  .field
+    = f.label :unit_id
+    = f.number_field :unit_id
+  .field
+    = f.label :memory_id
+    = f.number_field :memory_id
+  .field
+    = f.label :attributes
+    = f.text_field :attributes
+  .field
+    = f.label :vendor_sku
+    = f.text_field :vendor_sku
+  .actions
+    = f.submit 'Save'

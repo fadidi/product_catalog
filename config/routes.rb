@@ -1,4 +1,6 @@
 ProductCatalog::Application.routes.draw do
+  resources :items
+
   resources :diameters
 
   resources :lengths
