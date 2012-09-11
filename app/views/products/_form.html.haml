@@ -14,7 +14,7 @@
     = f.text_field :store_sku
   .field
     = f.label :category_id
-    = f.number_field :category_id
+    = f.collection_select :category_id, Category.all, :id, :name
   .field
     = f.label :minimum_order
     = f.number_field :minimum_order
