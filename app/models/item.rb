@@ -4,4 +4,5 @@ class Item < ActiveRecord::Base
   validates :vendor_sku, :presence => true, :uniqueness => true
 
   belongs_to :product
+  has_one :category, :through => :product
 end
