@@ -1,0 +1,54 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @raw_product.title
+%p
+  %b Subcategory:
+  = @raw_product.subcategory
+%p
+  %b Length mm:
+  = @raw_product.length_mm
+%p
+  %b Per packet:
+  = @raw_product.per_packet
+%p
+  %b Dimensions:
+  = @raw_product.dimensions
+%p
+  %b Sku:
+  = @raw_product.sku
+%p
+  %b Minimum order:
+  = @raw_product.minimum_order
+%p
+  %b Item price:
+  = @raw_product.item_price
+%p
+  %b Per unit:
+  = @raw_product.per_unit
+%p
+  %b Unit price:
+  = @raw_product.unit_price
+%p
+  %b Item price:
+  = @raw_product.item_price
+%p
+  %b Min order:
+  = @raw_product.min_order
+%p
+  %b Min order cost:
+  = @raw_product.min_order_cost
+%p
+  %b Blank1:
+  = @raw_product.blank1
+%p
+  %b Blank2:
+  = @raw_product.blank2
+%p
+  %b Blank3:
+  = @raw_product.blank3
+
+= link_to 'Edit', edit_raw_product_path(@raw_product)
+\|
+= link_to 'Back', raw_products_path

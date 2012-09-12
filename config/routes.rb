@@ -1,4 +1,6 @@
 ProductCatalog::Application.routes.draw do
+  resources :raw_products
+
   resources :units
 
   resources :products
