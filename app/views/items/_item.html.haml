@@ -1,1 +1,5 @@
-%li= link_to item.name, item
+%li
+  = link_to item.properties, item
+  = item.vendor_sku
+  = link_to 'edit', edit_item_path(item)
+  = item.comment

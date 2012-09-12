@@ -11,5 +11,8 @@ namespace :db do
     #raw_product_json.each do |row|
     #  puts row.inspect
     #end
+
+    puts 'raw product rows: ' + raw_products.count.to_s
+    puts 'RawProduct.count: ' + RawProduct.count.to_s
   end
 end

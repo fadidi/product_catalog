@@ -11,7 +11,7 @@ class Item < ActiveRecord::Base
   default_scope :order => 'vendor_sku ASC'
 
   def name
-    (properties.blank? ? vendor_name : properties) + " [#{vendor_sku}]"
+    "#{(properties.blank? ? vendor_name : properties)} [#{vendor_sku}]"
   end
 
   def category_name
