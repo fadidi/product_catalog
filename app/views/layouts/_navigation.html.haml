@@ -2,6 +2,7 @@
 %ul.nav
   %li= link_to 'Categories', categories_path if can? :read, Category
   %li= link_to 'Products', products_path if can? :read, Product
+  %li= link_to 'Units', units_path if can? :read, Unit
   %li= link_to 'Items', items_path if can? :read, Item
 %ul.nav.pull-right
   - if user_signed_in?

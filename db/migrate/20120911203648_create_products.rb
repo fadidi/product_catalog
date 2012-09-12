@@ -4,9 +4,6 @@ class CreateProducts < ActiveRecord::Migration
       t.string :name
       t.string :store_sku
       t.integer :category_id
-      t.integer :minimum_order
-      t.integer :per_unit
-      t.float :unit_price
       t.text :comment
 
       t.timestamps

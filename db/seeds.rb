@@ -28,7 +28,8 @@ User.all.each do |user|
 end
 User.find_by_email('jack@brownjohnf.com').add_role :admin
 
-Category.create([{
+puts 'building categories...'
+Category.create!([{
   :name => 'Burs'
 },{
   :name => 'Reamers'
@@ -50,4 +51,63 @@ Category.create([{
   :name => 'Posts'
 },{
   :name => 'Rotary Instruments'
+}])
+
+puts 'building products...'
+Product.create!([{
+  :name => 'Short Barbed Broaches',
+  :category_id => Category.find_by_name('Broaches').id,
+  :store_sku => 'SBB001',
+  :comment => 'Seeded by app.'
+}])
+
+puts 'building items...'
+Item.create!([{
+  :pieces_per_package => 6,
+  :properties => '21MM SIZE 1 <SSB>',
+  :vendor_sku => '4841478212',
+  :vendor_name => 'SHORT BARBED BROACHES(6PCS/PKG)',
+  :comment => 'Seeded by app.'
+},{
+  :pieces_per_package => 6,
+  :properties => '21MM SIZE 1-6 <SSB>',
+  :vendor_sku => '4841432212',
+  :vendor_name => 'SHORT BARBED BROACHES(6PCS/PKG)',
+  :comment => 'Seeded by app.'
+},{
+  :pieces_per_package => 6,
+  :properties => '21MM SIZE 2 <SSB>',
+  :vendor_sku => '4841778212',
+  :vendor_name => 'SHORT BARBED BROACHES(6PCS/PKG)',
+  :comment => 'Seeded by app.'
+},{
+  :pieces_per_package => 6,
+  :properties => '21MM SIZE 2-4 <SSB>',
+  :vendor_sku => '4841724212',
+  :vendor_name => 'SHORT BARBED BROACHES(6PCS/PKG)',
+  :comment => 'Seeded by app.'
+},{
+  :pieces_per_package => 6,
+  :properties => '21MM SIZE 3 <SSB>',
+  :vendor_sku => '4842078212',
+  :vendor_name => 'SHORT BARBED BROACHES(6PCS/PKG)',
+  :comment => 'Seeded by app.'
+},{
+  :pieces_per_package => 6,
+  :properties => '21MM SIZE 4 <SSB>',
+  :vendor_sku => '4842478212',
+  :vendor_name => 'SHORT BARBED BROACHES(6PCS/PKG)',
+  :comment => 'Seeded by app.'
+},{
+  :pieces_per_package => 6,
+  :properties => '21MM SIZE 5 <SSB>',
+  :vendor_sku => '4842878212',
+  :vendor_name => 'SHORT BARBED BROACHES(6PCS/PKG)',
+  :comment => 'Seeded by app.'
+},{
+  :pieces_per_package => 6,
+  :properties => '21MM SIZE 6 <SSB>',
+  :vendor_sku => '4843278212',
+  :vendor_name => 'SHORT BARBED BROACHES(6PCS/PKG)',
+  :comment => 'Seeded by app.'
 }])

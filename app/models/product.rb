@@ -6,4 +6,8 @@ class Product < ActiveRecord::Base
   belongs_to :category
   has_many :items
   has_many :units
+
+  default_scope :order => 'name ASC'
+  scope :uncategorized, where("category_id IS NULL")
+
 end

@@ -1,4 +1,4 @@
-= form_for @item do |f|
+= bootstrap_form_for @item do |f|
   - if @item.errors.any?
     #error_explanation
       %h2= "#{pluralize(@item.errors.count, "error")} prohibited this item from being saved:"
@@ -6,32 +6,21 @@
         - @item.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label Product
-    = f.collection_select :product_id, Product.all, :id, :name
-  .field
-    = f.label :pieces_per_package
-    = f.number_field :pieces_per_package
-  .field
-    = f.label :length
-    = f.text_field :length
-  .field
-    = f.label :unit_id
-    = f.collection_select :unit_id, Unit.all, :id, :name
-  .field
-    = f.label :memory_id
-    = f.number_field :memory_id
-  .field
-    = f.label :properties
-    = f.text_field :properties
-  .field
-    = f.label :vendor_sku*
-    = f.text_field :vendor_sku
-  .field
-    = f.label :vendor_name
-    = f.text_field :vendor_name
-  .field
-    = f.label :comment
-    = f.text_area :comment, :rows => 3
-  .actions
-    = f.submit 'Save'
+  = f.text_field :vendor_sku
+  = f.text_field :vendor_name
+  = f.collection_select :product_id, Product.all, :id, :name
+  = f.text_field :length
+  - if f.object.product
+    = f.collection_check_boxes :unit_id, f.object.product.units.all, :id, :name
+    - unless f.object.product.units.any?
+      %p
+        You need to
+        = link_to 'create units', new_unit_path
+        for the product.
+  - else
+    %p You need to save this item with a product.
+  = f.text_field :properties
+  = f.number_field :pieces_per_package
+  = f.number_field :memory_id
+  = f.text_area :comment, :rows => 3
+  = f.submit 'Save'

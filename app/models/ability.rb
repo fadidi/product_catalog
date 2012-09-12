@@ -7,7 +7,7 @@ class Ability
       can :manage, :all
     elsif user.has_role? :manager
       cat :read, :all
-      can :manage, [:category, :item, :product]
+      can :manage, [:category, :item, :product, :unit]
     elsif user.has_role? :user
       can :read, :all
     end

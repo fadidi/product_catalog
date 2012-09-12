@@ -1,6 +1,19 @@
 %h1 Editing unit
 
-= render 'form'
+= bootstrap_form_for @unit do |f|
+  - if @unit.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@unit.errors.count, "error")} prohibited this unit from being saved:"
+      %ul
+        - @unit.errors.full_messages.each do |msg|
+          %li= msg
+  = f.collection_select :product_id, Product.all, :id, :name
+  = f.number_field :items_per_unit
+  = f.text_field :price_per_item
+  = f.number_field :minimum_purchase
+  = f.text_area :comment
+  = f.collection_check_boxes :item_ids, Item.all, :id, :vendor_name
+  = f.submit 'Save'
 
 = link_to 'Show', @unit
 \|

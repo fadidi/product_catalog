@@ -43,12 +43,9 @@ ActiveRecord::Schema.define(:version => 20120911211603) do
     t.string   "name"
     t.string   "store_sku"
     t.integer  "category_id"
-    t.integer  "minimum_order"
-    t.integer  "per_unit"
-    t.float    "unit_price"
     t.text     "comment"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "roles", :force => true do |t|
@@ -65,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20120911211603) do
   create_table "units", :force => true do |t|
     t.integer  "product_id"
     t.integer  "items_per_unit"
-    t.float    "price_per_unit"
+    t.float    "price_per_item"
     t.integer  "minimum_purchase"
     t.text     "comment"
     t.datetime "created_at",       :null => false

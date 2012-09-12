@@ -1,4 +1,6 @@
 class UnitsController < ApplicationController
+  load_and_authorize_resource
+
   # GET /units
   # GET /units.json
   def index

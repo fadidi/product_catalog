@@ -1,31 +1,6 @@
 %h1 Listing products
 
-%table
-  %tr
-    %th Name
-    %th Store sku
-    %th Category
-    %th Minimum order
-    %th Per unit
-    %th Unit price
-    %th Comment
-    %th
-    %th
-    %th
-
-  - @products.each do |product|
-    %tr
-      %td= product.name
-      %td= product.store_sku
-      %td= product.category_id
-      %td= product.minimum_order
-      %td= product.per_unit
-      %td= product.unit_price
-      %td= product.comment
-      %td= link_to 'Show', product
-      %td= link_to 'Edit', edit_product_path(product)
-      %td= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
+%ul
+  = render @products
 
 = link_to 'New Product', new_product_path

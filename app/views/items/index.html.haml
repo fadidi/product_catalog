@@ -1,33 +1,45 @@
 = link_to 'New Item', new_item_path
-%table.table.table-striped.table-condensed
+%table.table.table-striped.table-condensed.table-bordered
   %tr
     %th Category
     %th Product
-    %th Pieces per package
+    %th Units
+    %th pcs/pkg
     %th Length
     %th Unit
     %th Memory
     %th Properties
-    %th Vendor sku
+    %th Vendor SKU
     %th Vendor Name
     %th Comment
     %th
-    %th
-    %th
 
   - @items.each do |item|
-    %tr
-      %td= item.category.name
-      %td= item.product.name
+    %tr{:class => (item.units.any? ? 'success' : 'error')}
+      %td
+        - if item.category
+          = link_to item.category.name, item.category
+        - elsif item.product
+          = link_to 'add category', edit_product_path(item.product)
+        - else
+          = link_to 'add to product', edit_item_path(item)
+      %td
+        -if item.product
+          = link_to item.product.name, item.product
+        - else
+          = link_to 'add to product', edit_item_path(item)
+      %td
+        %ul
+          - for unit in item.units do
+            %li= link_to unit.pricing, unit
       %td= item.pieces_per_package
       %td= item.length
       %td= item.unit_id
       %td= item.memory_id
       %td= item.properties
-      %td= item.vendor_sku
+      %td
+        =link_to item.vendor_sku, edit_item_path(item)
       %td= item.vendor_name
       %td= item.comment
-      %td= link_to 'Show', item
-      %td= link_to 'Edit', edit_item_path(item)
       %td= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }
 

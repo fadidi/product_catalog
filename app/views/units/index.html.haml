@@ -4,6 +4,7 @@
   %tr
     %th Product
     %th Items per unit
+    %th Price per item
     %th Price per unit
     %th Minimum purchase
     %th Comment
@@ -15,7 +16,8 @@
     %tr
       %td= unit.product_id
       %td= unit.items_per_unit
-      %td= unit.price_per_unit
+      %td= unit.price_per_item
+      %td= unit.items_per_unit * unit.price_per_item
       %td= unit.minimum_purchase
       %td= unit.comment
       %td= link_to 'Show', unit

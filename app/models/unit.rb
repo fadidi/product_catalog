@@ -1,5 +1,5 @@
 class Unit < ActiveRecord::Base
-  attr_accessible :comment, :items_per_unit, :minimum_purchase, :price_per_unit, :product_id
+  attr_accessible :comment, :items_per_unit, :minimum_purchase, :price_per_item, :product_id, :item_ids
 
   validates :product_id, :presence => true
 
@@ -8,6 +8,14 @@ class Unit < ActiveRecord::Base
 
   def name
     product.name
+  end
+
+  def price
+    price_per_item * items_per_unit
+  end
+
+  def pricing
+    "#{items_per_unit} @ $#{price_per_item} = #{price}/unit, min.#{minimum_purchase}"
   end
 
 end

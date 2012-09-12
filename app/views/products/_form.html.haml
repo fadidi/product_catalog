@@ -16,15 +16,6 @@
     = f.label :category_id
     = f.collection_select :category_id, Category.all, :id, :name
   .field
-    = f.label :minimum_order
-    = f.number_field :minimum_order
-  .field
-    = f.label :per_unit
-    = f.number_field :per_unit
-  .field
-    = f.label :unit_price
-    = f.text_field :unit_price
-  .field
     = f.label :comment
     = f.text_area :comment, :rows => 3
   .actions

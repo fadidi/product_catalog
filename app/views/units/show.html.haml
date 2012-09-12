@@ -1,20 +1,11 @@
 %p#notice= notice
 
-%p
-  %b Product:
-  = @unit.product_id
-%p
-  %b Items per unit:
-  = @unit.items_per_unit
-%p
-  %b Price per unit:
-  = @unit.price_per_unit
-%p
-  %b Minimum purchase:
-  = @unit.minimum_purchase
-%p
-  %b Comment:
-  = @unit.comment
+%h1= @unit.product.name if @unit.product
+%h3 #{@unit.items_per_unit} @ $#{@unit.price_per_item} = #{@unit.items_per_unit * @unit.price_per_item}/unit, min. #{@unit.minimum_purchase}
+%p= @unit.comment
+%ul
+- for item in @unit.items do
+  %li= item.name
 
 = link_to 'Edit', edit_unit_path(@unit)
 \|
