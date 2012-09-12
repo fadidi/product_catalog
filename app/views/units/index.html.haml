@@ -1,0 +1,27 @@
+%h1 Listing units
+
+%table
+  %tr
+    %th Product
+    %th Items per unit
+    %th Price per unit
+    %th Minimum purchase
+    %th Comment
+    %th
+    %th
+    %th
+
+  - @units.each do |unit|
+    %tr
+      %td= unit.product_id
+      %td= unit.items_per_unit
+      %td= unit.price_per_unit
+      %td= unit.minimum_purchase
+      %td= unit.comment
+      %td= link_to 'Show', unit
+      %td= link_to 'Edit', edit_unit_path(unit)
+      %td= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Unit', new_unit_path

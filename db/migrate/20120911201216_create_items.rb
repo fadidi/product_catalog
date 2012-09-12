@@ -9,6 +9,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :properties
       t.string :vendor_sku
       t.text :comment
+      t.string :vendor_name
 
       t.timestamps
     end

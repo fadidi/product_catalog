@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Product:
+  = @unit.product_id
+%p
+  %b Items per unit:
+  = @unit.items_per_unit
+%p
+  %b Price per unit:
+  = @unit.price_per_unit
+%p
+  %b Minimum purchase:
+  = @unit.minimum_purchase
+%p
+  %b Comment:
+  = @unit.comment
+
+= link_to 'Edit', edit_unit_path(@unit)
+\|
+= link_to 'Back', units_path

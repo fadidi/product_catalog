@@ -7,7 +7,7 @@
           %li= msg
 
   .field
-    = f.label :product_id
+    = f.label Product
     = f.collection_select :product_id, Product.all, :id, :name
   .field
     = f.label :pieces_per_package
@@ -25,8 +25,11 @@
     = f.label :properties
     = f.text_field :properties
   .field
-    = f.label :vendor_sku
+    = f.label :vendor_sku*
     = f.text_field :vendor_sku
+  .field
+    = f.label :vendor_name
+    = f.text_field :vendor_name
   .field
     = f.label :comment
     = f.text_area :comment, :rows => 3

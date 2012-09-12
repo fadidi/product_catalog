@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120911204336) do
+ActiveRecord::Schema.define(:version => 20120911211603) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -29,8 +29,14 @@ ActiveRecord::Schema.define(:version => 20120911204336) do
     t.string   "properties"
     t.string   "vendor_sku"
     t.text     "comment"
+    t.string   "vendor_name"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "items_units", :id => false, :force => true do |t|
+    t.integer "item_id"
+    t.integer "unit_id"
   end
 
   create_table "products", :force => true do |t|
@@ -55,6 +61,16 @@ ActiveRecord::Schema.define(:version => 20120911204336) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "units", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "items_per_unit"
+    t.float    "price_per_unit"
+    t.integer  "minimum_purchase"
+    t.text     "comment"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                :default => "", :null => false
