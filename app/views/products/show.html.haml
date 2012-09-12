@@ -5,6 +5,9 @@
     = @product.name
     %small
       = link_to 'edit', edit_product_path(@product)
+      %br
+      categorized in
+      = link_to @product.category.name, @product.category
 %ul
   = render @product.units
 
