@@ -5,6 +5,7 @@
         = category.name
         %small
           = category.comment
+          = link_to 'view', category
           = link_to 'edit', edit_category_path(category)
       %ul
         = render category.products

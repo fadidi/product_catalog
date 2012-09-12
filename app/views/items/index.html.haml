@@ -6,7 +6,6 @@
     %th Units
     %th pcs/pkg
     %th Length
-    %th Unit
     %th Memory
     %th Properties
     %th Vendor SKU
@@ -15,7 +14,7 @@
     %th
 
   - @items.each do |item|
-    %tr{:class => (item.units.any? ? 'success' : 'error')}
+    %tr{:class => (item.units.any? ? (item.products.count > 1 ? 'info' : 'success') : 'error')}
       %td
         - if item.category
           = link_to item.category.name, item.category
@@ -31,10 +30,9 @@
       %td
         %ul
           - for unit in item.units do
-            %li= link_to unit.pricing, unit
+            %li= link_to unit.pricing, edit_unit_path(unit)
       %td= item.pieces_per_package
       %td= item.length
-      %td= item.unit_id
       %td= item.memory_id
       %td= item.properties
       %td

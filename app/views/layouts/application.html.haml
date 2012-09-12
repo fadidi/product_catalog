@@ -19,6 +19,9 @@
       .container-fluid
         .row-fluid
           .span12
+            = render 'menu' rescue nil
+        .row-fluid
+          .span12
             = render 'layouts/messages'
             = yield
           %footer

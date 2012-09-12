@@ -28,6 +28,7 @@ User.all.each do |user|
 end
 User.find_by_email('jack@brownjohnf.com').add_role :admin
 
+=begin
 puts 'building categories...'
 Category.create!([{
   :name => 'Burs'
@@ -53,6 +54,7 @@ Category.create!([{
   :name => 'Rotary Instruments'
 }])
 
+
 puts 'building products...'
 Product.create!([{
   :name => 'Short Barbed Broaches',
@@ -60,9 +62,10 @@ Product.create!([{
   :store_sku => 'SBB001',
   :comment => 'Seeded by app.'
 }])
+=end
 
 puts 'building items...'
-Item.create!([{
+items = [{
   :pieces_per_package => 6,
   :properties => '21MM SIZE 1 <SSB>',
   :vendor_sku => '4841478212',
@@ -110,4 +113,9 @@ Item.create!([{
   :vendor_sku => '4843278212',
   :vendor_name => 'SHORT BARBED BROACHES(6PCS/PKG)',
   :comment => 'Seeded by app.'
-}])
+}]
+
+items.each do |item|
+  puts item.inspect
+  Item.create!(item.merge(:product_id => Product.find_or_create_by_name!(:name => item[:vendor_name], :store_sku => item[:vendor_sku]).id))
+end

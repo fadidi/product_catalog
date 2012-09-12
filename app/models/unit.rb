@@ -7,7 +7,7 @@ class Unit < ActiveRecord::Base
   has_and_belongs_to_many :items
 
   def name
-    product.name
+    "#{pricing} #{product.name}"
   end
 
   def price
@@ -15,7 +15,7 @@ class Unit < ActiveRecord::Base
   end
 
   def pricing
-    "#{items_per_unit} @ $#{price_per_item} = #{price}/unit, min.#{minimum_purchase}"
+    "#{items_per_unit} @ $#{price_per_item} = $#{price}/unit, min.#{minimum_purchase}"
   end
 
 end

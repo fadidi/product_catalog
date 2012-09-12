@@ -11,7 +11,7 @@
   = f.number_field :items_per_unit
   = f.text_field :price_per_item
   = f.number_field :minimum_purchase
-  = f.text_area :comment
+  = f.text_area :comment, :rows => 3
   = f.collection_check_boxes :item_ids, Item.all, :id, :vendor_name
   = f.submit 'Save'
 

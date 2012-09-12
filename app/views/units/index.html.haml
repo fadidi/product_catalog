@@ -1,8 +1,9 @@
 %h1 Listing units
 
-%table
+%table.table
   %tr
     %th Product
+    %th Items
     %th Items per unit
     %th Price per item
     %th Price per unit
@@ -14,10 +15,11 @@
 
   - @units.each do |unit|
     %tr
-      %td= unit.product_id
+      %td= unit.product.name
+      %td= unit.items.count
       %td= unit.items_per_unit
       %td= unit.price_per_item
-      %td= unit.items_per_unit * unit.price_per_item
+      %td= unit.price
       %td= unit.minimum_purchase
       %td= unit.comment
       %td= link_to 'Show', unit

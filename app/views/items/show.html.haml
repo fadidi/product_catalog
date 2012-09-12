@@ -1,32 +1,23 @@
 %p#notice= notice
 
-%p
-  %b Product:
-  = @item.product_id
-%p
-  %b Pieces per package:
-  = @item.pieces_per_package
-%p
-  %b Length:
-  = @item.length
-%p
-  %b Unit:
-  = @item.unit_id
-%p
-  %b Memory:
-  = @item.memory_id
-%p
-  %b Properties:
-  = @item.properties
-%p
-  %b Vendor sku:
-  = @item.vendor_sku
-%p
-  %b Vendor Name:
-  = @item.vendor_name
-%p
-  %b Comment:
-  = @item.comment
+.page-header
+  %h1
+    = @item.properties
+    %small
+      = @item.product.name if @item.product
+%dl.dl-horizontal
+  %dt pcs/pkg:
+  %dd= @item.pieces_per_package
+  %dt Properties:
+  %dd= @item.properties
+  %dt Vendor SKU:
+  %dd= @item.vendor_sku
+  %dt Vendor Name:
+  %dd= @item.vendor_name
+  %dt Comment:
+  %dd= @item.comment
+%ul
+  = render @item.products
 
 = link_to 'Edit', edit_item_path(@item)
 \|

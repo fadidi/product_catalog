@@ -15,10 +15,6 @@ class CreateRawProducts < ActiveRecord::Migration
       t.string :min_order
       t.string :min_order_cost
       t.string :blank1
-      t.string :blank2
-      t.string :blank3
-
-      t.timestamps
     end
   end
 end

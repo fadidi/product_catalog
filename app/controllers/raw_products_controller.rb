@@ -1,4 +1,6 @@
 class RawProductsController < ApplicationController
+  load_and_authorize_resource
+
   # GET /raw_products
   # GET /raw_products.json
   def index

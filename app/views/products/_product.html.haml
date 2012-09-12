@@ -1,6 +1,9 @@
 %li
   %h3
     = product.name
-    %small= product.comment
+    %small
+      = product.comment
+      = link_to 'view', product
+      = link_to 'edit', edit_product_path(product)
   %ul
     = render product.units

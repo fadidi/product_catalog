@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120911211603) do
+ActiveRecord::Schema.define(:version => 20120912130324) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(:version => 20120911211603) do
     t.integer "unit_id"
   end
 
+  add_index "items_units", ["item_id", "unit_id"], :name => "index_items_units_on_item_id_and_unit_id", :unique => true
+
   create_table "products", :force => true do |t|
     t.string   "name"
     t.string   "store_sku"
@@ -46,6 +48,24 @@ ActiveRecord::Schema.define(:version => 20120911211603) do
     t.text     "comment"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "raw_products", :force => true do |t|
+    t.string   "title"
+    t.string   "subcategory"
+    t.string   "length_mm"
+    t.string   "per_packet"
+    t.string   "dimensions"
+    t.string   "sku"
+    t.string   "minimum_order"
+    t.string   "item_price"
+    t.string   "per_unit"
+    t.string   "unit_price"
+    t.string   "min_order"
+    t.string   "min_order_cost"
+    t.string   "blank1"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "roles", :force => true do |t|

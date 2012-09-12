@@ -11,7 +11,7 @@
   = f.collection_select :product_id, Product.all, :id, :name
   = f.text_field :length
   - if f.object.product
-    = f.collection_check_boxes :unit_id, f.object.product.units.all, :id, :name
+    = f.collection_check_boxes :unit_ids, f.object.product.units.all, :id, :name
     - unless f.object.product.units.any?
       %p
         You need to

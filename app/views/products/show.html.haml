@@ -1,18 +1,11 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @product.name
-%p
-  %b Store sku:
-  = @product.store_sku
-%p
-  %b Category:
-  = @product.category_id
-%p
-  %b Comment:
-  = @product.comment
+.page-header
+  %h1
+    = @product.name
+    %small
+      = link_to 'edit', edit_product_path(@product)
+%ul
+  = render @product.units
 
-= link_to 'Edit', edit_product_path(@product)
-\|
 = link_to 'Back', products_path
