@@ -1,4 +1,5 @@
 = link_to 'New Item', new_item_path
+= will_paginate :class => 'pagination pagination-centered'
 %table.table.table-striped.table-condensed.table-bordered
   %tr
     %th Category
@@ -40,4 +41,4 @@
       %td= item.vendor_name
       %td= item.comment
       %td= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }
-
+= will_paginate :class => 'pagination pagination-centered'

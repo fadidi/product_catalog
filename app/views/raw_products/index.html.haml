@@ -1,21 +1,20 @@
 %h1 Listing raw_products
 
-%table
+%table.table.table-condensed
   %tr
     %th Title
+    %th Category
     %th Subcategory
-    %th Length mm
     %th Per packet
+    %th Length mm
+    %th Memory
     %th Dimensions
-    %th Sku
+    %th SKU
     %th Minimum order
     %th Item price
     %th Per unit
     %th Unit price
-    %th Item price
-    %th Min order
-    %th Min order cost
-    %th Blank1
+    %th Comment
     %th
     %th
     %th
@@ -23,19 +22,18 @@
   - @raw_products.each do |raw_product|
     %tr
       %td= raw_product.title
+      %td= raw_product.category
       %td= raw_product.subcategory
-      %td= raw_product.length_mm
       %td= raw_product.per_packet
+      %td= raw_product.length_mm
+      %th= raw_product.memory
       %td= raw_product.dimensions
       %td= raw_product.sku
       %td= raw_product.minimum_order
       %td= raw_product.item_price
       %td= raw_product.per_unit
       %td= raw_product.unit_price
-      %td= raw_product.item_price
-      %td= raw_product.min_order
-      %td= raw_product.min_order_cost
-      %td= raw_product.blank1
+      %td= raw_product.comment
       %td= link_to 'Show', raw_product
       %td= link_to 'Edit', edit_raw_product_path(raw_product)
       %td= link_to 'Destroy', raw_product, method: :delete, data: { confirm: 'Are you sure?' }

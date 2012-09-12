@@ -1,3 +1,3 @@
 class RawProduct < ActiveRecord::Base
-  attr_accessible :blank1, :dimensions, :item_price, :item_price, :length_mm, :min_order, :min_order_cost, :minimum_order, :per_packet, :per_unit, :sku, :subcategory, :title, :unit_price
+  attr_accessible :id, :title, :category, :subcategory, :per_packet, :length_mm, :memory, :dimensions, :sku, :minimum_order, :item_price, :per_unit, :unit_price, :comment
 end

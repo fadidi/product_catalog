@@ -51,21 +51,19 @@ ActiveRecord::Schema.define(:version => 20120912130324) do
   end
 
   create_table "raw_products", :force => true do |t|
-    t.string   "title"
-    t.string   "subcategory"
-    t.string   "length_mm"
-    t.string   "per_packet"
-    t.string   "dimensions"
-    t.string   "sku"
-    t.string   "minimum_order"
-    t.string   "item_price"
-    t.string   "per_unit"
-    t.string   "unit_price"
-    t.string   "min_order"
-    t.string   "min_order_cost"
-    t.string   "blank1"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.string "title"
+    t.string "category"
+    t.string "subcategory"
+    t.string "per_packet"
+    t.string "length_mm"
+    t.string "memory"
+    t.string "dimensions"
+    t.string "sku"
+    t.string "minimum_order"
+    t.string "item_price"
+    t.string "per_unit"
+    t.string "unit_price"
+    t.string "comment"
   end
 
   create_table "roles", :force => true do |t|
@@ -81,12 +79,12 @@ ActiveRecord::Schema.define(:version => 20120912130324) do
 
   create_table "units", :force => true do |t|
     t.integer  "product_id"
-    t.integer  "items_per_unit"
+    t.integer  "items_per_unit",   :default => 1
     t.float    "price_per_item"
-    t.integer  "minimum_purchase"
+    t.integer  "minimum_purchase", :default => 1
     t.text     "comment"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "users", :force => true do |t|
