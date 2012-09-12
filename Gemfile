@@ -29,4 +29,5 @@ gem 'bootstrap_forms'
 
 group :development do
   gem 'sextant'
+  gem 'foreman'
 end
