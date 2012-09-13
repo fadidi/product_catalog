@@ -27,6 +27,7 @@ gem "rolify", ">= 3.2.0"
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem 'bootstrap_forms'
 gem 'bootstrap-will_paginate'
+gem 'best_in_place'
 
 group :development do
   gem 'sextant'

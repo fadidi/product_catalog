@@ -2,7 +2,7 @@
   - for category in @categories do
     %li
       %h1
-        = category.name
+        = best_in_place category, :name
         %small
           = category.comment
           = link_to 'view', category
