@@ -4,7 +4,7 @@ class UnitsController < ApplicationController
   # GET /units
   # GET /units.json
   def index
-    @units = Unit.all
+    @units = Unit.by_sku
 
     respond_to do |format|
       format.html # index.html.erb

@@ -7,6 +7,8 @@ class Unit < ActiveRecord::Base
   belongs_to :product
   has_and_belongs_to_many :items
 
+  scope :by_sku, order('store_sku ASC')
+
   def name
     "#{pricing} #{product.name} [#{store_sku}]"
   end
