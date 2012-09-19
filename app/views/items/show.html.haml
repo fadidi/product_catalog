@@ -1,5 +1,3 @@
-%p#notice= notice
-
 .page-header
   %h1
     = @item.properties
@@ -15,7 +13,12 @@
   %dt Vendor Name:
   %dd= @item.vendor_name
   %dt Comment:
-  %dd= @item.comment
+  %dd
+    = @item.comment
+    &nbsp;
+  %dt Entered:
+  %dd= @item.entered? ? time_ago_in_words(@item.entered) : 'not entered'
+%hr
 %ul
   = render @item.products
 

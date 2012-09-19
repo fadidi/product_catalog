@@ -3,6 +3,9 @@
     = unit.pricing
     %small
       = unit.comment
+      SKU[
+      = best_in_place unit, :store_sku
+      ]
       = link_to 'view', unit
       = link_to 'edit', edit_unit_path(unit)
   %ul

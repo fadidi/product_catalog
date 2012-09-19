@@ -1,0 +1,6 @@
+$(function(){
+  $('span.entered#<%= @item.id %>')
+  .html('<span class="icon-check"></span>')
+  .closest('li')
+  .addClass('highlight');
+});

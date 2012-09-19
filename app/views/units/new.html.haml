@@ -12,6 +12,9 @@
     = f.label :product_id
     = f.collection_select :product_id, Product.all, :id, :name
   .field
+    = f.label :store_sku
+    = f.text_field :store_sku
+  .field
     = f.label :items_per_unit
     = f.number_field :items_per_unit
   .field

@@ -71,6 +71,21 @@ class ItemsController < ApplicationController
     end
   end
 
+  # GET /items/1/enter
+  def enter
+    @item = Item.find(params[:id])
+
+    respond_to do |format|
+      if @item.enter
+        format.js
+        format.html { redirect_to @item, notice: 'Item noted as entered.' }
+      else
+        format.js
+        format.html { redirect_to @item, notice: 'Item failed to be set as entered.' }
+      end
+    end
+  end
+
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy

@@ -1,11 +1,19 @@
 ProductCatalog::Application.routes.draw do
   resources :raw_products
 
-  resources :units
+  resources :units do
+    member do
+      get :enter
+    end
+  end
 
   resources :products
 
-  resources :items
+  resources :items do
+    member do
+      get :enter
+    end
+  end
 
   resources :categories
 

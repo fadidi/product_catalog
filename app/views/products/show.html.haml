@@ -4,9 +4,6 @@
   %h1
     = best_in_place @product, :name
     %small
-      SKU[
-      = best_in_place @product, :store_sku
-      ]
       = link_to 'edit', edit_product_path(@product)
       %br
       categorized in

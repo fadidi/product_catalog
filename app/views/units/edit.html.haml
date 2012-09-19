@@ -8,6 +8,7 @@
         - @unit.errors.full_messages.each do |msg|
           %li= msg
   = f.collection_select :product_id, Product.all, :id, :name
+  = f.text_field :store_sku
   = f.number_field :items_per_unit
   = f.text_field :price_per_item
   = f.number_field :minimum_purchase

@@ -1,5 +1,12 @@
 %li
   = link_to item.properties, item
+  (#{item.pieces_per_package.to_i} pcs)
   = item.vendor_sku
   = link_to 'edit', edit_item_path(item)
   = item.comment
+  %span.entered{:id => item.id}
+    - if item.entered?
+      %span.icon-check.colored
+    - else
+      = link_to enter_item_path(item), :remote => true do
+        %span.icon-ok.colored

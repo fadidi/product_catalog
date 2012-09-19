@@ -1,7 +1,12 @@
 %p#notice= notice
 
-%h1= @unit.product.name if @unit.product
-%h3 #{@unit.items_per_unit} @ $#{@unit.price_per_item} = #{@unit.items_per_unit * @unit.price_per_item}/unit, min. #{@unit.minimum_purchase}
+%h1= best_in_place_if(@unit.product, @unit.product, :name)
+%h3
+  = @unit.pricing
+  %small
+    SKU[
+    = best_in_place @unit, :store_sku
+    ]
 %p= @unit.comment
 %ul
 - for item in @unit.items do

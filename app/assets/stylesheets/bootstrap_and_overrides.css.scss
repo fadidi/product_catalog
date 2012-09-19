@@ -9,3 +9,18 @@ ul {
 .best_in_place {
   background-color: lighten(pink, 10%);
 }
+
+.colored {
+  &.icon-ok {
+    background-color: lighten(orange, 10%);
+  }
+  &.icon-check {
+    background-color: lighten(green, 50%);
+  }
+}
+
+li {
+  &.highlight {
+    background-color: lighten(green, 50%);
+  }
+}

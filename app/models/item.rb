@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  attr_accessible :properties, :length, :memory_id, :pieces_per_package, :product_id, :vendor_sku, :comment, :vendor_name, :unit_ids
+  attr_accessible :properties, :length, :memory_id, :pieces_per_package, :product_id, :vendor_sku, :comment, :vendor_name, :unit_ids, :entered
 
   validates :vendor_sku, :presence => true, :uniqueness => true
 
@@ -26,4 +26,13 @@ class Item < ActiveRecord::Base
       'add product'
     end
   end
+
+  def enter
+    self.update_attributes(:entered => Time.now + 1.second)
+  end
+
+  def entered?
+    entered.nil? ? false : entered > updated_at
+  end
+
 end

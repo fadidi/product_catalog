@@ -2,9 +2,6 @@
   %h3
     = best_in_place product, :name
     %small
-      SKU[
-      = best_in_place product, :store_sku
-      ]
       = product.comment
       = link_to 'view', product
       = link_to 'edit', edit_product_path(product)

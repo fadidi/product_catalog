@@ -63,7 +63,7 @@ class UnitsController < ApplicationController
     respond_to do |format|
       if @unit.update_attributes(params[:unit])
         format.html { redirect_to items_path, notice: 'Unit was successfully updated.' }
-        format.json { head :no_content }
+        format.json { respond_with_bip(@unit) }
       else
         format.html { render action: "edit" }
         format.json { render json: @unit.errors, status: :unprocessable_entity }
