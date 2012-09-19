@@ -2,6 +2,7 @@ class Unit < ActiveRecord::Base
   attr_accessible :comment, :items_per_unit, :minimum_purchase, :price_per_item, :product_id, :item_ids, :store_sku, :entered
 
   validates :product_id, :presence => true
+  validates :store_sku, :uniqueness => true
 
   belongs_to :product
   has_and_belongs_to_many :items
