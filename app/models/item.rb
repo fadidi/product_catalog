@@ -8,7 +8,8 @@ class Item < ActiveRecord::Base
   belongs_to :product
   has_one :category, :through => :product
 
-  default_scope :order => 'vendor_sku ASC'
+  scope :by_sku, order('vendor_sku ASC')
+  scope :by_property, order('properties ASC')
 
   def name
     "#{(properties.blank? ? vendor_name : properties)} [#{vendor_sku}]"
