@@ -4,6 +4,7 @@
   %tr
     %th Product
     %th Store SKU
+    %th Pcs/Unit
     %th Items
     %th Items per unit
     %th Price per item
@@ -18,6 +19,7 @@
     %tr
       %td= best_in_place unit.product, :name
       %td= best_in_place unit, :store_sku
+      %td= unit.pieces
       %td= unit.items.count
       %td= unit.items_per_unit
       %td= unit.price_per_item
