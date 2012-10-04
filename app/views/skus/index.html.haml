@@ -1,0 +1,19 @@
+%table.table
+  %thead
+    %th MounceEndo SKU
+    %th Mani SKU
+  %tbody
+    - for item in @items do
+      - for unit in item.units
+        %tr
+          %td
+            = unit.store_sku
+            = item.properties
+          %td= item.vendor_sku
+%hr
+"MounceEndo SKU","Vendor SKU"
+%br
+- for item in @items do
+  - for unit in item.units
+    "#{unit.store_sku} #{item.properties}","#{item.vendor_sku}"
+    %br

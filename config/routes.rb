@@ -21,6 +21,7 @@ ProductCatalog::Application.routes.draw do
     root :to => 'items#index'
   end
 
+  match '/skus', :to => 'skus#index'
   root :to => "home#index"
 
   devise_for :users
